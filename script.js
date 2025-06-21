@@ -5,6 +5,18 @@ const botonLargo = document.querySelector(".app__card-button--largo")
 const imagen = document.querySelector(".app__image")
 const titulo = document.querySelector(".app__title")
 const botones = document.querySelectorAll(".app__card-button")
+const musicaSwitch = document.querySelector("#alternar-musica")
+const musica = new Audio("sonidos/luna-rise-part-one.mp3")
+
+musica.loop = true
+
+musicaSwitch.addEventListener("change", () => {
+    if (musica.paused){
+        musica.play()
+    } else {
+        musica.pause()
+    }
+})
 
 botonCorto.addEventListener("click", () => {
     cambiarContexto("descanso-corto")
@@ -20,6 +32,7 @@ botonLargo.addEventListener("click", () => {
     cambiarContexto("descanso-largo")
     botonLargo.classList.add("active")
 })
+
 
 function cambiarContexto (contexto){
 
